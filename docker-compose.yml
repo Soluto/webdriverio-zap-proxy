@@ -8,6 +8,7 @@ services:
     depends_on:
       - "hub"
       - "zap"
+      - "nowasp"
   hub:
     image: selenium/hub
     ports:
@@ -21,6 +22,8 @@ services:
       - hub
   zap:
     image: owasp/zap2docker-weekly
-    command: zap.sh -daemon -host 0.0.0.0 -port 8090 -config api.disablekey=true
+    command: zap.sh -daemon -host 0.0.0.0 -port 8090 -config api.disablekey=true -addonupdate -addoninstall pscanrulesAlpha -addoninstall pscanrulesBeta
     ports:
       - "8090:8090"
+  nowasp:
+    image: citizenstig/nowasp
