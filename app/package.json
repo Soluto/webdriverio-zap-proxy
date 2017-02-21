@@ -1,0 +1,15 @@
+{
+  "name": "webdriverio-zap-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wdio.conf.js",
+  "scripts": {
+    "test": "wdio wdio.conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wdio-mocha-framework": "^0.5.8",
+    "webdriverio": "^4.6.2"
+  }
+}
