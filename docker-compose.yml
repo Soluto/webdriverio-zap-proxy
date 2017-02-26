@@ -2,7 +2,6 @@ version: "2"
 services:
   test:
     build: ./app
-    command: ["./wait-for-it.sh", "zap:8090", "-t", "120", "--", "./test.sh"]
     volumes:
       - .:/usr/src/wrk
     depends_on:

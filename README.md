@@ -8,7 +8,7 @@ I used `docker` and `docker-compose` to make this setup easy by using the follow
 * Selenium hub and chrome [official images](https://github.com/SeleniumHQ/docker-selenium) - to run the tests.
 * [Zap weekly](https://hub.docker.com/r/owasp/zap2docker-weekly/)
 * [OWASP Mutillidae](https://github.com/citizen-stig/dockermutillidae)
-* A service that actually run the tests
+* Test - A service that actually run your automation tests
 
 Running
 =========
@@ -19,7 +19,7 @@ Running
 
 Behind the scene
 =========================
-The magic is done by requesting the `proxy capabiltiy` in webdriver.io config (see the whole file under `app\wdio.conf.js`, I used the basic file from the documentation and changed it a bit):
+The magic is done by requesting the `proxy capabiltiy` in webdriver.io config (see the whole file under `app/wdio.conf.js`, I used the basic file from the documentation and changed it a bit):
 ````Javascript
 var proxy = "http://zap:8090";
 ...
@@ -39,8 +39,9 @@ capabilities: [{
 ````
 where `http://zap:8090` is the Zap container address (see [networking](https://docs.docker.com/compose/networking/) documentation).
 
-The test script (`app\test.sh`) is what actually run zap.
+The test script (`app/test.sh`) is what actually run zap.
 Currently it contains the following commands:
+* `zap-cli --zap-url http://zap status -t 120` wait until zap complete loading
 * `zap-cli --zap-url http://zap open-url http://nowasp` which initiate zap and start a new session
 * `npm test` to run the test
 * `zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html` to export the report in HTML format.
