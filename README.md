@@ -47,3 +47,5 @@ Currently it contains the following commands:
 * `zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html` to export the report in HTML format.
 I am using [Zap cli](https://github.com/Grunny/zap-cli) to interact with zap. 
 It is installed on the docker image (see the docker file at `app\Dockerfile`).
+
+Please notice that you can exclude certain urls from zap scanning by using the following command `zap-cli --zap-url http://zap exclude "<url-regex>"`.
