@@ -20,7 +20,7 @@ services:
     links:
       - hub
   zap:
-    image: owasp/zap2docker-weekly
+    image: owasp/zap2docker-stable
     command: zap.sh -daemon -host 0.0.0.0 -port 8090 -config api.disablekey=true -config database.recoverylog=false -config connection.timeoutInSecs=120 -addonupdate -addoninstall pscanrulesAlpha -addoninstall pscanrulesBeta
     ports:
       - "8090:8090"
