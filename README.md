@@ -42,6 +42,8 @@ capabilities: [{
 where `http://zap:8090` is the Zap container address (see [networking](https://docs.docker.com/compose/networking/) documentation).
 
 The test script (`app/test.sh`) is what actually run zap.
+I am using [Zap cli](https://github.com/Grunny/zap-cli) to interact with zap. 
+It is installed on the docker image (see the docker file at `app\Dockerfile`).
 Currently it contains the following commands:
 * `zap-cli --zap-url http://zap status -t 120` wait until zap complete loading
 * `zap-cli --zap-url http://zap open-url http://juice-shop` which initiate zap and start a new session
@@ -49,7 +51,5 @@ Currently it contains the following commands:
 * `npm test` to run the test
 * `zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html` to export the report in HTML format.
 * `zap-cli --zap-url http://zap alerts --alert-level Low` to print the alerts and fail the build if errors found.
-I am using [Zap cli](https://github.com/Grunny/zap-cli) to interact with zap. 
-It is installed on the docker image (see the docker file at `app\Dockerfile`).
 
 Please notice that you can exclude certain urls from zap scanning by using the following command `zap-cli --zap-url http://zap exclude "<url-regex>"`.
