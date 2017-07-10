@@ -7,7 +7,7 @@ services:
     depends_on:
       - "hub"
       - "zap"
-      - "nowasp"
+      - "juice-shop"
   hub:
     image: selenium/hub
     ports:
@@ -24,5 +24,5 @@ services:
     command: zap.sh -daemon -host 0.0.0.0 -port 8090 -config api.disablekey=true -config database.recoverylog=false -config connection.timeoutInSecs=120 -addonupdate -addoninstall pscanrulesAlpha -addoninstall pscanrulesBeta -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true
     ports:
       - "8090:8090"
-  nowasp:
-    image: citizenstig/nowasp
+  juice-shop:
+    image: bkimminich/juice-shop

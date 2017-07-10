@@ -4,11 +4,11 @@ An example project of integrating [zap](https://www.owasp.org/index.php/OWASP_Ze
 Zap is a great tool and can be used to spider your webapp and report security vulnerabilities it found.
 By integrating it into the automation test, you gain better coverage of your webapp, as every page that is covered with your tests will be also scanned with Zap.
 I presented this project at OWASP Israel Chapter meetup, you can find the slides [here](https://goo.gl/sphN9w).
-In this example I used [OWASP Mutillidae](https://github.com/citizen-stig/dockermutillidae) for demonstration purpose - the test simply try to open of the pages so we can see Zap alerts.
+In this example I used [OWASP Juice Shope](https://github.com/bkimminich/juice-shop) for demonstration purpose - the test simply try to open one of the pages so we can see Zap alerts.
 I used `docker` and `docker-compose` to make this setup easy by using the following services:
 * Selenium hub and chrome [official images](https://github.com/SeleniumHQ/docker-selenium) - to run the tests.
-* [Zap weekly](https://hub.docker.com/r/owasp/zap2docker-weekly/)
-* [OWASP Mutillidae](https://github.com/citizen-stig/dockermutillidae)
+* [Zap stable](https://hub.docker.com/r/owasp/zap2docker-stable/)
+* [OWASP Juice Shop](https://hub.docker.com/r/bkimminich/juice-shop/)
 * Test - A service that actually run your automation tests
 
 Running
