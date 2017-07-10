@@ -43,7 +43,7 @@ where `http://zap:8090` is the Zap container address (see [networking](https://d
 
 The test script (`app/test.sh`) is what actually run zap.
 I am using [Zap cli](https://github.com/Grunny/zap-cli) to interact with zap. 
-It is installed on the docker image (see the docker file at `app\Dockerfile`).
+It is installed on the docker image (see the docker file at `app/Dockerfile`).
 Currently it contains the following commands:
 * `zap-cli --zap-url http://zap status -t 120` wait until zap complete loading
 * `zap-cli --zap-url http://zap open-url http://juice-shop` which initiate zap and start a new session
