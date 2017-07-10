@@ -10,6 +10,6 @@ zap-cli --zap-url http://zap open-url http://nowasp
 zap-cli --zap-url http://zap exclude ".*bower_components.*"
 
 npm test
-zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html
+#zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html
 
 zap-cli --zap-url http://zap alerts --alert-level Low
