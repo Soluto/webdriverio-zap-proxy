@@ -13,10 +13,11 @@ I used `docker` and `docker-compose` to make this setup easy by using the follow
 
 Running
 =========
-* clone this repo and browse to the checkout folder
-* run `docker-compose build`
-* run `docker-compose up -abort-on-container-exit`
-* open the `report.html` file in any browser and see the alerts found by Zap!
+* Clone this repo and browse to the checkout folder
+* Run `docker-compose pull --parallel`
+* Run `docker-compose build`
+* Run `docker-compose up -abort-on-container-exit`
+* Open the `report.html` file in any browser and see the alerts found by Zap!
 
 Behind the scene
 =========================
