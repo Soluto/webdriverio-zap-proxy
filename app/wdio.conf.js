@@ -79,7 +79,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: 'http://nowasp',
+    baseUrl: 'http://juice-shop:3000',
     framework: 'mocha',
 
     reporters: ['dot'],
