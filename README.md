@@ -3,7 +3,7 @@ Description
 An example project of integrating [zap](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) into existing automation tests that are developed with [Webdriver.io](http://webdriver.io/) framework.
 Zap is a great tool and can be used to spider your webapp and report security vulnerabilities it found.
 By integrating it into the automation test, you gain better coverage of your webapp, as every page that is covered with your tests will be also scanned with Zap.
-I presented this project at OWASP Israel Chapter meetup, you can find the slides [here](https://goo.gl/sphN9w).
+I presented this project at a Webinar, you can find the slidedeck [here](https://www.slideshare.net/SolutoTLV/all-you-need-is-zap).
 In this example I used [OWASP Juice Shope](https://github.com/bkimminich/juice-shop) for demonstration purpose - the test simply try to open one of the pages so we can see Zap alerts.
 I used `docker` and `docker-compose` to make this setup easy by using the following services:
 * Selenium hub and chrome [official images](https://github.com/SeleniumHQ/docker-selenium) - to run the tests.
