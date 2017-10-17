@@ -16,7 +16,7 @@ Running
 * Clone this repo and browse to the checkout folder
 * Run `docker-compose pull --parallel`
 * Run `docker-compose build`
-* Run `docker-compose up -abort-on-container-exit`
+* Run `docker-compose up --exit-code-from test`
 * Open the `report.html` file in any browser and see the alerts found by Zap!
 
 Behind the scene
