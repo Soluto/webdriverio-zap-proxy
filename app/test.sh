@@ -3,13 +3,10 @@
 # Abort script on error
 set -e
 
-zap-cli --zap-url http://zap status -t 400
-zap-cli --zap-url http://zap open-url http://juice-shop
-
-# exclude urls you want to ignore here
-zap-cli --zap-url http://zap exclude ".*bower_components.*"
+./wait-for-it.sh zap:8090 -t 4000
 
 npm test
-zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html
+#give Zap some time to complete processing
+sleep 3
+ruby /usr/bin/glue/bin/glue -t zap --zap-host http://zap --zap-port 8090 --zap-passive-mode -f text --exit-on-warn 0 http://juice-shop --finding-file-path /usr/src/wrk/glue.json 
 
-zap-cli --zap-url http://zap alerts --alert-level Low

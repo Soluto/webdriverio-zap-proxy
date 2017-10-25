@@ -1,0 +1,17 @@
+{
+  "ZAPhttp://juice-shop:3000/Web Browser XSS Protection Not EnabledX-XSS-Protection": "new",
+  "ZAPhttp://juice-shop:3000/Storable but Non-Cacheable Content": "new",
+  "ZAPhttp://juice-shop:3000/Content Security Policy (CSP) Header Not Set": "ignore",
+  "ZAPhttp://juice-shop:3000/Cross-Domain Misconfiguration": "ignore",
+  "ZAPhttp://juice-shop:3000/Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)": "new",
+  "ZAPhttp://juice-shop:3000/Absence of Anti-CSRF Tokens": "new",
+  "ZAPhttp://juice-shop:3000/HTTP Parameter Override": "new",
+  "ZAPhttp://juice-shop:3000/bower_components/fontawesome/css/font-awesome.min.cssStorable but Non-Cacheable Content": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/fontawesome/css/font-awesome.min.cssCross-Domain Misconfiguration": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/fontawesome/css/font-awesome.min.cssServer Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/github-fork-ribbon-css/gh-fork-ribbon.cssStorable but Non-Cacheable Content": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/github-fork-ribbon-css/gh-fork-ribbon.cssCross-Domain Misconfiguration": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/github-fork-ribbon-css/gh-fork-ribbon.cssServer Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/flag-icon-css/css/flag-icon.min.cssStorable but Non-Cacheable Content": "ignore",
+  "ZAPhttp://juice-shop:3000/bower_components/flag-icon-css/css/flag-icon.min.cssCross-Domain Misconfiguration": "ignore"
+}
