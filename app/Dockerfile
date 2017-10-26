@@ -13,9 +13,9 @@ RUN chmod +x /tmp/install_ruby.sh && \
 
 RUN mkdir /tmp/glue && \
     cd /tmp/glue && \
-    wget https://github.com/omerlh/glue/archive/fix_file_filter.tar.gz && \
-    tar -zxvf fix_file_filter.tar.gz --strip-components=1 && \
-    rm -rf fix_file_filter.tar.gz && \
+    wget https://github.com/OWASP/glue/archive/master.tar.gz && \
+    tar -zxvf master.tar.gz --strip-components=1 && \
+    rm -rf master.tar.gz && \
     bundle install && \
     cd ../ && \
     mv glue /usr/bin/
