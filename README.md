@@ -5,6 +5,7 @@ Zap is a great tool and can be used to spider your webapp and report security vu
 By integrating it into the automation test, you gain better coverage of your webapp, as every page that is covered with your tests will be also scanned with Zap.
 I presented this project at a Webinar, you can find the slidedeck [here](https://www.slideshare.net/SolutoTLV/all-you-need-is-zap).
 In this example I used [OWASP Juice Shope](https://github.com/bkimminich/juice-shop) for demonstration purpose - the test simply try to open one of the pages so we can see Zap alerts.
+I am also using [OWASP Glue](https://github.com/OWASP/glue) to process the alerts found by Zap.
 I used `docker` and `docker-compose` to make this setup easy by using the following services:
 * Selenium hub and chrome [official images](https://github.com/SeleniumHQ/docker-selenium) - to run the tests.
 * [Zap stable](https://hub.docker.com/r/owasp/zap2docker-stable/)
@@ -17,7 +18,6 @@ Running
 * Run `docker-compose pull --parallel`
 * Run `docker-compose build`
 * Run `docker-compose up --exit-code-from test`
-* Open the `report.html` file in any browser and see the alerts found by Zap!
 
 Behind the scene
 =========================
@@ -41,15 +41,11 @@ capabilities: [{
 ````
 where `http://zap:8090` is the Zap container address (see [networking](https://docs.docker.com/compose/networking/) documentation).
 
-The test script (`app/test.sh`) is what actually run zap.
-I am using [Zap cli](https://github.com/Grunny/zap-cli) to interact with zap. 
+The test script (`app/test.sh`) is what actually run Zap.
 It is installed on the docker image (see the docker file at `app/Dockerfile`).
 Currently it contains the following commands:
-* `zap-cli --zap-url http://zap status -t 120` wait until zap complete loading
-* `zap-cli --zap-url http://zap open-url http://juice-shop` which initiate zap and start a new session
-* `zap-cli --zap-url http://zap exclude ".*bower_components.*"` to ignore all `bower-components` url.
+* `./wait-for-it.sh zap:8090 -t 40000` wait until zap complete loading
 * `npm test` to run the test
-* `zap-cli --zap-url http://zap report -o /usr/src/wrk/report.html -f html` to export the report in HTML format.
-* `zap-cli --zap-url http://zap alerts --alert-level Low` to print the alerts and fail the build if errors found.
+* `ruby /usr/bin/glue/bin/glue -t zap --zap-host http://zap --zap-port 8090 --zap-passive-mode -f text --exit-on-warn 0 http://juice-shop --finding-file-path /usr/src/wrk/glue.json` to process Zap's alert using Glue.
 
-Please notice that you can exclude certain urls from zap scanning by using the following command `zap-cli --zap-url http://zap exclude "<url-regex>"`.
+Please notice that you can exclude certain urls from zap alerts by editing `glue.json`.
