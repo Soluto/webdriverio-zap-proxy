@@ -599,6 +599,10 @@ lodash.keys@^3.0.0:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
+lodash@^4.15.0:
+  version "4.17.5"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+
 lodash@^4.3.0, lodash@^4.8.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
@@ -1001,6 +1005,12 @@ wdio-sync@0.6.10:
   dependencies:
     fibers "^1.0.9"
     object.assign "^4.0.3"
+
+wdio-teamcity-reporter@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/wdio-teamcity-reporter/-/wdio-teamcity-reporter-1.1.1.tgz#1f862bd000cdcbb34eff8fd6872df830cbeb8585"
+  dependencies:
+    lodash "^4.15.0"
 
 webdriverio@^4.6.2:
   version "4.6.2"

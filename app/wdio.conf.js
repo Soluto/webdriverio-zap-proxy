@@ -82,11 +82,12 @@ exports.config = {
     baseUrl: 'http://juice-shop:3000',
     framework: 'mocha',
 
-    reporters: ['dot'],
+    reporters: ['teamcity'],
     reporterOptions: {
-        outputDir: './'
+      captureStandardOutput: false, // optional 
+      flowId: true, // optional 
+      message: '[title]', // optional 
     },
-
     mochaOpts: {
         ui: 'bdd',
         timeout: 1000000
