@@ -1,0 +1,26 @@
+version: '3'
+services:
+  juice-shop:
+    image: bkimminich/juice-shop
+    logging:
+      driver: "none"
+    
+  black-box:
+    build: ./app
+    environment:
+      - http_proxy=http://zap:8090
+      - https_proxy=http://zap:8090
+
+  hub:
+    image: selenium/hub
+    logging:
+      driver: "none"
+  chrome:
+    image: selenium/node-chrome
+    depends_on:
+      - "hub"
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+    logging:
+      driver: "none"

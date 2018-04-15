@@ -5,20 +5,22 @@ Zap is a great tool and can be used to spider your webapp and report security vu
 By integrating it into the automation test, you gain better coverage of your webapp, as every page that is covered with your tests will be also scanned with Zap.
 I presented this project at a Webinar, you can find the slidedeck [here](https://www.slideshare.net/SolutoTLV/all-you-need-is-zap).
 In this example I used [OWASP Juice Shope](https://github.com/bkimminich/juice-shop) for demonstration purpose - the test simply try to open one of the pages so we can see Zap alerts.
-I am also using [OWASP Glue](https://github.com/OWASP/glue) to process the alerts found by Zap.
+I am also using [OWASP Glue](https://github.com/soluto/glue) to process the alerts found by Zap.
 I used `docker` and `docker-compose` to make this setup easy by using the following services:
 * Selenium hub and chrome [official images](https://github.com/SeleniumHQ/docker-selenium) - to run the tests.
 * [Zap stable](https://hub.docker.com/r/owasp/zap2docker-stable/)
 * [OWASP Juice Shop](https://hub.docker.com/r/bkimminich/juice-shop/)
 * Test - A service that actually run your automation tests
 
+To build the tests I've used this [guide](https://github.com/Soluto/owasp-zap-glue-ci-images).
+Check it out for a complete walk-through on how to proxy you existing tests through Zap, and adding security tests easily.
+
 Running
 =========
 * Clone this repo and browse to the checkout folder
-* Run `docker-compose pull --parallel`
-* Run `docker-compose build`
-* Run `docker-compose up --exit-code-from test`
-
+* Run `./scripts/run_tests.sh`. This step is running the e2e tests and is passing. Zap will proxy the test and persist the session.
+* Run `./scripts/run_security_tests.sh`. This step will query Zap's passive scan results and will output them using Glue. 
+* Modify `./glue/juice-shop` to ignore specific findings. Take a look on the [guide](https://github.com/Soluto/owasp-zap-glue-ci-images) for more details on different ways to ignore findings.
 Behind the scene
 =========================
 The magic is done by requesting the `proxy capabiltiy` in webdriver.io config (see the whole file under `app/wdio.conf.js`, I used the basic file from the documentation and changed it a bit):
