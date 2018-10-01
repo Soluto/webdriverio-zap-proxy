@@ -23,7 +23,7 @@ Running
 * Modify `./glue/juice-shop` to ignore specific findings. Take a look on the [guide](https://github.com/Soluto/owasp-zap-glue-ci-images) for more details on different ways to ignore findings.
 Behind the scene
 =========================
-The magic is done by requesting the `proxy capabiltiy` in webdriver.io config (see the whole file under `app/wdio.conf.js`, I used the basic file from the documentation and changed it a bit):
+The magic is done by requesting the `proxy capability` in webdriver.io config (see the whole file under `app/wdio.conf.js`, I used the basic file from the documentation and changed it a bit):
 ````Javascript
 var proxy = "http://zap:8090";
 ...
