@@ -4,13 +4,17 @@
   "description": "",
   "main": "wdio.conf.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "wdio-mocha-framework": "^0.5.8",
     "wdio-teamcity-reporter": "^1.1.1",
-    "webdriverio": "^4.6.2"
-  }
+    "webdriverio": "^4.6.2",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
